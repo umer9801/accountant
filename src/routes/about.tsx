@@ -22,7 +22,7 @@ function AboutPage() {
         eyebrow="About us"
         title={<>Helping UK businesses grow with <span className="text-gradient">confidence</span></>}
         subtitle="We combine years of accounting expertise with modern digital technology to deliver reliable financial solutions for businesses throughout the UK."
-        image="/__l5e/assets-v1/bbae8ff9-2019-4f8f-a794-91ed13c7c165/about.jpg"
+        image="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=80"
       />
 
       <Section>

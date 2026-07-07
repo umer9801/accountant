@@ -36,7 +36,7 @@ function CalculatorPage() {
         eyebrow="Tax Calculator"
         title={<>UK tax, calculated <span className="text-gradient">beautifully</span></>}
         subtitle="Six modern calculators for salary, dividends, corporation tax, VAT and more — powered by the latest 2025/26 HMRC rates."
-        image="/__l5e/assets-v1/7a1aab13-010d-4855-875b-5d96ca4cf420/calc.jpg"
+        image="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&q=80"
       />
       <Section>
         <div className="glass rounded-3xl p-2 flex flex-wrap gap-1 mb-8">

@@ -18,13 +18,13 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Modern, reliable and affordable UK accounting for freelancers, contractors, SMEs and growing businesses." },
       { property: "og:title", content: "Accountant Manchester" },
       { property: "og:description", content: "Your trusted accounting partner in the UK." },
-      { property: "og:image", content: "/__l5e/assets-v1/e4a1c2ff-b802-41fc-a07e-82497eb8420a/hero.jpg" },
+      { property: "og:image", content: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80" },
     ],
   }),
   component: HomePage,
 });
 
-const HERO_IMG = "/__l5e/assets-v1/e4a1c2ff-b802-41fc-a07e-82497eb8420a/hero.jpg";
+const HERO_IMG = "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80";
 
 function HomePage() {
   return (
@@ -363,9 +363,9 @@ function Testimonials() {
 /* ---------------- LATEST UPDATES ---------------- */
 function LatestUpdates() {
   const posts = [
-    { cat: "Making Tax Digital", title: "MTD for Income Tax: What sole traders need to know in 2026", img: "/__l5e/assets-v1/e4a1c2ff-b802-41fc-a07e-82497eb8420a/hero.jpg" },
-    { cat: "Corporation Tax", title: "Marginal relief explained: reducing your CT bill", img: "/__l5e/assets-v1/bbae8ff9-2019-4f8f-a794-91ed13c7c165/about.jpg" },
-    { cat: "VAT", title: "VAT thresholds updated — should you register?", img: "/__l5e/assets-v1/1c895fc9-5108-49e0-be84-b1de1db07fb2/services.jpg" },
+    { cat: "Making Tax Digital", title: "MTD for Income Tax: What sole traders need to know in 2026", img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" },
+    { cat: "Corporation Tax", title: "Marginal relief explained: reducing your CT bill", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80" },
+    { cat: "VAT", title: "VAT thresholds updated — should you register?", img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80" },
   ];
   return (
     <Section>

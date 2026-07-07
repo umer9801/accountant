@@ -23,7 +23,7 @@ function ContactPage() {
         eyebrow="Contact"
         title={<>Let's talk about your <span className="text-gradient">finances</span></>}
         subtitle="Book a free consultation, ask a question or drop by our Manchester office. We reply within one business day."
-        image="/__l5e/assets-v1/ce75d86c-4a86-4398-abd5-8d8a471ab29b/contact.jpg"
+        image="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80"
       />
 
       <Section>

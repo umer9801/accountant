@@ -19,14 +19,14 @@ export const Route = createFileRoute("/tax-updates")({
 const categories = ["All", "Income Tax", "Corporation Tax", "VAT", "HMRC", "Making Tax Digital", "Payroll", "National Insurance"];
 
 const posts = [
-  { title: "Autumn Budget 2025: what UK businesses need to know", cat: "HMRC", date: "12 Oct 2025", img: "/__l5e/assets-v1/2b0ddba4-1ac5-4d9a-9717-80698163d82b/updates.jpg", featured: true, trending: true },
-  { title: "MTD for Income Tax: sole trader readiness checklist", cat: "Making Tax Digital", date: "05 Oct 2025", img: "/__l5e/assets-v1/e4a1c2ff-b802-41fc-a07e-82497eb8420a/hero.jpg", trending: true },
-  { title: "Corporation tax marginal relief: worked examples", cat: "Corporation Tax", date: "28 Sep 2025", img: "/__l5e/assets-v1/bbae8ff9-2019-4f8f-a794-91ed13c7c165/about.jpg" },
-  { title: "VAT thresholds updated — should you register?", cat: "VAT", date: "20 Sep 2025", img: "/__l5e/assets-v1/1c895fc9-5108-49e0-be84-b1de1db07fb2/services.jpg" },
-  { title: "National Insurance changes for directors in 2025/26", cat: "National Insurance", date: "12 Sep 2025", img: "/__l5e/assets-v1/7a1aab13-010d-4855-875b-5d96ca4cf420/calc.jpg" },
-  { title: "Payroll RTI: avoiding the 5 most common mistakes", cat: "Payroll", date: "01 Sep 2025", img: "/__l5e/assets-v1/ce75d86c-4a86-4398-abd5-8d8a471ab29b/contact.jpg" },
-  { title: "Self assessment: allowable expenses you're missing", cat: "Income Tax", date: "24 Aug 2025", img: "/__l5e/assets-v1/e4a1c2ff-b802-41fc-a07e-82497eb8420a/hero.jpg" },
-  { title: "HMRC compliance checks: what to expect in 2025", cat: "HMRC", date: "18 Aug 2025", img: "/__l5e/assets-v1/2b0ddba4-1ac5-4d9a-9717-80698163d82b/updates.jpg" },
+  { title: "Autumn Budget 2025: what UK businesses need to know", cat: "HMRC", date: "12 Oct 2025", img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80", featured: true, trending: true },
+  { title: "MTD for Income Tax: sole trader readiness checklist", cat: "Making Tax Digital", date: "05 Oct 2025", img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80", trending: true },
+  { title: "Corporation tax marginal relief: worked examples", cat: "Corporation Tax", date: "28 Sep 2025", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80" },
+  { title: "VAT thresholds updated — should you register?", cat: "VAT", date: "20 Sep 2025", img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80" },
+  { title: "National Insurance changes for directors in 2025/26", cat: "National Insurance", date: "12 Sep 2025", img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80" },
+  { title: "Payroll RTI: avoiding the 5 most common mistakes", cat: "Payroll", date: "01 Sep 2025", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" },
+  { title: "Self assessment: allowable expenses you're missing", cat: "Income Tax", date: "24 Aug 2025", img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" },
+  { title: "HMRC compliance checks: what to expect in 2025", cat: "HMRC", date: "18 Aug 2025", img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80" },
 ];
 
 function UpdatesPage() {
@@ -42,7 +42,7 @@ function UpdatesPage() {
         eyebrow="Tax Updates"
         title={<>Insights & guides from <span className="text-gradient">our chartered team</span></>}
         subtitle="Stay ahead of HMRC changes, deadlines and opportunities. Expert-written, jargon-free."
-        image="/__l5e/assets-v1/2b0ddba4-1ac5-4d9a-9717-80698163d82b/updates.jpg"
+        image="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=80"
       />
 
       <Section>

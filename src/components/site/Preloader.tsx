@@ -20,7 +20,7 @@ export function Preloader() {
             transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
           />
           <div className="absolute inset-3 rounded-full gradient-brand flex items-center justify-center shadow-2xl">
-            <span className="text-white font-display font-bold text-4xl tracking-tight">SK</span>
+            <span className="text-white font-display font-bold text-2xl tracking-tight">A</span>
           </div>
           {icons.map((Icon, i) => {
             const angle = (i / icons.length) * Math.PI * 2;

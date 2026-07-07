@@ -33,7 +33,7 @@ function ServicesPage() {
         eyebrow="Our Services"
         title={<>Comprehensive accounting for every <span className="text-gradient">stage of business</span></>}
         subtitle="From startups to established companies — tailored accounting, taxation and advisory services designed to keep your business compliant, financially organised and ready for growth."
-        image="/__l5e/assets-v1/1c895fc9-5108-49e0-be84-b1de1db07fb2/services.jpg"
+        image="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1200&q=80"
       />
 
       <Section>
