@@ -30,6 +30,7 @@ function HomePage() {
   return (
     <>
       <Hero />
+      <ProudPartnerships />
       <WhyChooseUs />
       <FeaturedServices />
       <Statistics />
@@ -434,6 +435,93 @@ function Newsletter() {
           </form>
         </div>
       </div>
+    </Section>
+  );
+}
+
+/* ---------------- PROUD PARTNERSHIPS ---------------- */
+const partners = [
+  {
+    name: "Institute of Financial Accountants",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6e/Institute_of_Financial_Accountants_logo.svg/320px-Institute_of_Financial_Accountants_logo.svg.png",
+    fallback: "IFA",
+    url: "https://www.ifa.org.uk",
+  },
+  {
+    name: "Xero",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Xero_software_logo.svg/320px-Xero_software_logo.svg.png",
+    fallback: "Xero",
+    url: "https://www.xero.com",
+  },
+  {
+    name: "Moneysoft",
+    logo: "https://www.moneysoft.co.uk/wp-content/uploads/2021/03/moneysoft-logo.png",
+    fallback: "Moneysoft",
+    url: "https://www.moneysoft.co.uk",
+  },
+  {
+    name: "QuickBooks",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Intuit_QuickBooks_logo.svg/320px-Intuit_QuickBooks_logo.svg.png",
+    fallback: "QuickBooks",
+    url: "https://quickbooks.intuit.com",
+  },
+  {
+    name: "AccountancyManager",
+    logo: "https://www.accountancymanager.co.uk/wp-content/uploads/2020/09/AM-Logo-Colour.png",
+    fallback: "AM",
+    url: "https://www.accountancymanager.co.uk",
+  },
+];
+
+function ProudPartnerships() {
+  return (
+    <Section>
+      <SectionHeading
+        eyebrow="Proud Partnerships"
+        title={<>Trusted by the tools that <span className="text-gradient">power UK accounting</span></>}
+        subtitle="We partner with industry-leading platforms to deliver seamless, modern accounting for every client."
+        center
+      />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="mt-14 flex flex-wrap items-center justify-center gap-8"
+      >
+        {partners.map((p, i) => (
+          <motion.a
+            key={p.name}
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08 }}
+            whileHover={{ y: -4, scale: 1.05 }}
+            className="group flex items-center justify-center rounded-2xl glass px-8 py-6 min-w-[180px] hover:ring-glow transition"
+            title={p.name}
+          >
+            <img
+              src={p.logo}
+              alt={p.name}
+              className="h-10 w-auto max-w-[140px] object-contain grayscale group-hover:grayscale-0 transition duration-300"
+              onError={(e) => {
+                const target = e.currentTarget;
+                target.style.display = "none";
+                const fallback = target.nextElementSibling as HTMLElement;
+                if (fallback) fallback.style.display = "flex";
+              }}
+            />
+            <span
+              className="hidden items-center justify-center text-sm font-bold text-muted-foreground group-hover:text-foreground transition"
+            >
+              {p.fallback}
+            </span>
+          </motion.a>
+        ))}
+      </motion.div>
     </Section>
   );
 }
