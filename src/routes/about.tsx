@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Target, Eye, Heart, Award, CheckCircle2 } from "lucide-react";
+import { Target, Eye, Heart, Award } from "lucide-react";
 import { PageHero, Section, SectionHeading, Eyebrow } from "@/components/site/primitives";
 
 export const Route = createFileRoute("/about")({
@@ -61,28 +61,6 @@ function AboutPage() {
                 </div>
               </div>
               <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 h-4 w-4 rounded-full gradient-brand ring-4 ring-white" />
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
-      <Section>
-        <SectionHeading eyebrow="Meet the team" title={<>The people behind <span className="text-gradient">Accountant Manchester</span></>} />
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { name: "Sadia Khan", role: "Founder & CEO", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&q=80" },
-            { name: "James O'Brien", role: "Head of Tax", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&q=80" },
-            { name: "Priya Sharma", role: "Senior Accountant", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80" },
-            { name: "Michael Turner", role: "Client Advisor", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&q=80" },
-          ].map((m, i) => (
-            <motion.div key={m.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} whileHover={{ y: -6 }} className="group rounded-3xl overflow-hidden bg-white shadow-[0_6px_30px_-12px_rgba(11,31,58,0.15)]">
-              <div className="relative overflow-hidden aspect-[4/5]">
-                <img src={m.img} alt={m.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
-              </div>
-              <div className="p-5">
-                <div className="font-semibold">{m.name}</div>
-                <div className="text-sm text-muted-foreground">{m.role}</div>
-              </div>
             </motion.div>
           ))}
         </div>
