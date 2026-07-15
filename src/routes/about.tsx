@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Target, Eye, Heart, Award } from "lucide-react";
-import { PageHero, Section, SectionHeading, Eyebrow } from "@/components/site/primitives";
+import { Target, Eye, Heart } from "lucide-react";
+import { PageHero, Section } from "@/components/site/primitives";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -38,45 +38,6 @@ function AboutPage() {
               <p className="mt-2 text-muted-foreground">{it.body}</p>
             </motion.div>
           ))}
-        </div>
-      </Section>
-
-      <Section>
-        <SectionHeading eyebrow="Our Journey" title={<>A timeline of <span className="text-gradient">growth</span></>} />
-        <div className="mt-14 relative">
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[color:var(--royal)] to-[color:var(--emerald)]" />
-          {[
-            { y: "2009", t: "Founded in Manchester", d: "Started with a single client and a big vision." },
-            { y: "2014", t: "First 500 clients", d: "Reached our first major milestone across the UK." },
-            { y: "2019", t: "Cloud-first transformation", d: "Migrated our entire practice to real-time cloud accounting." },
-            { y: "2023", t: "Awarded UK Top 100 Firm", d: "Recognised for innovation and client outcomes." },
-            { y: "2025", t: "2,500+ businesses trust us", d: "And we're just getting started." },
-          ].map((s, i) => (
-            <motion.div key={s.y} initial={{ opacity: 0, x: i % 2 ? 30 : -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className={`relative flex mb-10 ${i % 2 ? "md:flex-row-reverse" : ""}`}>
-              <div className="w-full md:w-1/2 pl-12 md:px-8">
-                <div className="glass rounded-3xl p-6">
-                  <div className="text-sm font-bold text-[color:var(--royal)]">{s.y}</div>
-                  <div className="mt-2 font-semibold text-lg">{s.t}</div>
-                  <div className="mt-1 text-sm text-muted-foreground">{s.d}</div>
-                </div>
-              </div>
-              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 h-4 w-4 rounded-full gradient-brand ring-4 ring-white" />
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
-      <Section>
-        <div className="rounded-3xl glass p-10">
-          <Eyebrow>Certifications & Awards</Eyebrow>
-          <div className="mt-8 grid gap-6 md:grid-cols-4">
-            {["ACCA Certified", "ICAEW Member", "Xero Platinum Partner", "UK Top 100 Firm 2023"].map((c, i) => (
-              <motion.div key={c} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }} className="flex items-center gap-3">
-                <Award className="h-8 w-8 text-[color:var(--emerald)]" />
-                <div className="font-semibold text-sm">{c}</div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </Section>
     </>

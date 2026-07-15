@@ -33,7 +33,6 @@ function HomePage() {
       <ProudPartnerships />
       <WhyChooseUs />
       <FeaturedServices />
-      <Statistics />
       <HowWeWork />
       <Industries />
       <Testimonials />
@@ -443,31 +442,31 @@ function Newsletter() {
 const partners = [
   {
     name: "Institute of Financial Accountants",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6e/Institute_of_Financial_Accountants_logo.svg/320px-Institute_of_Financial_Accountants_logo.svg.png",
+    logo: "/images/1.png",
     fallback: "IFA",
     url: "https://www.ifa.org.uk",
   },
   {
     name: "Xero",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Xero_software_logo.svg/320px-Xero_software_logo.svg.png",
+    logo: "/images/2.png",
     fallback: "Xero",
     url: "https://www.xero.com",
   },
   {
     name: "Moneysoft",
-    logo: "https://www.moneysoft.co.uk/wp-content/uploads/2021/03/moneysoft-logo.png",
+    logo: "/images/3.png",
     fallback: "Moneysoft",
     url: "https://www.moneysoft.co.uk",
   },
   {
     name: "QuickBooks",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Intuit_QuickBooks_logo.svg/320px-Intuit_QuickBooks_logo.svg.png",
+    logo: "/images/4.png",
     fallback: "QuickBooks",
     url: "https://quickbooks.intuit.com",
   },
   {
     name: "AccountancyManager",
-    logo: "https://www.accountancymanager.co.uk/wp-content/uploads/2020/09/AM-Logo-Colour.png",
+    logo: "/images/5.jpg",
     fallback: "AM",
     url: "https://www.accountancymanager.co.uk",
   },
@@ -487,7 +486,7 @@ function ProudPartnerships() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="mt-14 flex flex-wrap items-center justify-center gap-8"
+        className="mt-14 flex flex-wrap items-center justify-center gap-6"
       >
         {partners.map((p, i) => (
           <motion.a
@@ -499,26 +498,16 @@ function ProudPartnerships() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
-            whileHover={{ y: -4, scale: 1.05 }}
-            className="group flex items-center justify-center rounded-2xl glass px-8 py-6 min-w-[180px] hover:ring-glow transition"
+            whileHover={{ y: -4, scale: 1.03 }}
+            className="group flex items-center justify-center rounded-2xl bg-white shadow-[0_4px_20px_-6px_rgba(11,31,58,0.12)] hover:shadow-[0_8px_30px_-6px_rgba(29,78,216,0.2)] transition-all duration-300 p-5"
+            style={{ width: 160, height: 90 }}
             title={p.name}
           >
             <img
               src={p.logo}
               alt={p.name}
-              className="h-10 w-auto max-w-[140px] object-contain grayscale group-hover:grayscale-0 transition duration-300"
-              onError={(e) => {
-                const target = e.currentTarget;
-                target.style.display = "none";
-                const fallback = target.nextElementSibling as HTMLElement;
-                if (fallback) fallback.style.display = "flex";
-              }}
+              className="max-h-12 max-w-[120px] w-auto object-contain"
             />
-            <span
-              className="hidden items-center justify-center text-sm font-bold text-muted-foreground group-hover:text-foreground transition"
-            >
-              {p.fallback}
-            </span>
           </motion.a>
         ))}
       </motion.div>
