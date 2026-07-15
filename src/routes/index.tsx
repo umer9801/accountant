@@ -60,7 +60,7 @@ function Hero() {
 
       <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-[1.1fr_1fr] gap-14 items-center">
         <div>
-          <Eyebrow>Chartered UK Accountants · Est. 2009</Eyebrow>
+          <Eyebrow>UK Accountants · Manchester</Eyebrow>
           <motion.h1
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -93,10 +93,10 @@ function Hero() {
 
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { n: 15, s: "+", l: "Years Experience" },
-              { n: 2500, s: "+", l: "Clients" },
-              { n: 98, s: "%", l: "Satisfaction" },
-              { n: 0, s: "24/7", l: "Support", raw: true },
+              { s: "ICAEW", l: "Regulated Practice", raw: true },
+              { s: "MTD", l: "Ready & Compliant", raw: true },
+              { s: "Fixed", l: "Monthly Pricing", raw: true },
+              { s: "No", l: "Hidden Charges", raw: true },
             ].map((it, i) => (
               <motion.div
                 key={i}
@@ -235,45 +235,6 @@ function FeaturedServices() {
             </div>
           </motion.div>
         ))}
-      </div>
-    </Section>
-  );
-}
-
-/* ---------------- STATISTICS ---------------- */
-function Statistics() {
-  const stats = [
-    { n: 15, s: "+", l: "Years Experience" },
-    { n: 2500, s: "+", l: "Clients Served" },
-    { n: 99, s: "%", l: "Returns Filed On Time" },
-    { n: 50, s: "M+", l: "Business Turnover Managed", prefix: "£" },
-  ];
-  return (
-    <Section>
-      <div className="relative rounded-[32px] overflow-hidden bg-[color:var(--navy)] text-white p-10 sm:p-16">
-        <div className="absolute inset-0 grid-bg opacity-10" />
-        <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-[color:var(--royal)]/40 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-[color:var(--emerald)]/30 blur-3xl" />
-        <div className="relative grid gap-10 lg:grid-cols-[1fr_auto]">
-          <div>
-            <Eyebrow>By the numbers</Eyebrow>
-            <h2 className="mt-5 text-4xl sm:text-5xl font-bold max-w-2xl">Trusted by thousands of UK businesses.</h2>
-            <p className="mt-4 text-white/70 max-w-xl">Real numbers from real clients — the outcomes we deliver every day.</p>
-          </div>
-          <div className="grid grid-cols-2 gap-6 sm:min-w-[420px]">
-            {stats.map((s, i) => (
-              <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="rounded-2xl glass-dark p-5">
-                <div className="text-4xl font-bold">
-                  {s.prefix}<CountUp end={s.n} duration={2.4} enableScrollSpy scrollSpyOnce />{s.s}
-                </div>
-                <div className="mt-2 text-sm text-white/70">{s.l}</div>
-                <div className="mt-3 h-1 rounded-full bg-white/10 overflow-hidden">
-                  <motion.div initial={{ width: 0 }} whileInView={{ width: "85%" }} viewport={{ once: true }} transition={{ duration: 1.4, delay: 0.3 + i * 0.1 }} className="h-full gradient-brand" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </div>
     </Section>
   );

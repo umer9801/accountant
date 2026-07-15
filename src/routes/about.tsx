@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Target, Eye, Heart, ShieldCheck, Clock, Users } from "lucide-react";
+import { Target, Eye, Heart, ShieldCheck, Users } from "lucide-react";
 import { PageHero, Section, SectionHeading, Eyebrow } from "@/components/site/primitives";
 
 export const Route = createFileRoute("/about")({
@@ -59,9 +59,9 @@ function AboutPage() {
           >
             {[
               { icon: ShieldCheck, label: "ICAEW & ACCA Regulated", desc: "All work carried out under professional regulatory standards." },
-              { icon: Clock, label: "15+ Years in Practice", desc: "Established experience across personal and corporate tax." },
-              { icon: Users, label: "2,500+ Clients Served", desc: "Individuals, SMEs, landlords and limited companies." },
-              { icon: Target, label: "Dedicated Accountant", desc: "One senior point of contact for your account at all times." },
+              { icon: Users, label: "Dedicated Senior Accountant", desc: "One qualified point of contact for your account at all times." },
+              { icon: Target, label: "Fixed, Transparent Fees", desc: "No surprise invoices — clear pricing agreed upfront." },
+              { icon: Heart, label: "Long-Term Client Relationships", desc: "We focus on continuity, not one-off engagements." },
             ].map((it, i) => (
               <motion.div
                 key={it.label}
@@ -145,7 +145,7 @@ function AboutPage() {
             <div className="mt-8 grid sm:grid-cols-3 gap-6">
               {[
                 { stat: "93%", label: "Client retention rate year on year" },
-                { stat: "< 24h", label: "Average response time during business hours" },
+                { stat: "Fixed", label: "Monthly fee — no hourly billing surprises" },
                 { stat: "100%", label: "Self assessment returns filed on time" },
               ].map((s, i) => (
                 <motion.div
