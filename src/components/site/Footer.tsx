@@ -29,11 +29,11 @@ export function Footer() {
               <div className="h-11 w-11 rounded-2xl gradient-brand flex items-center justify-center font-bold">A</div>
               <div>
                 <div className="font-bold">Accountant Manchester</div>
-                <div className="text-xs text-white/60 uppercase tracking-widest">Chartered · UK</div>
+                <div className="text-xs text-white/60 uppercase tracking-widest">Manchester · UK</div>
               </div>
             </div>
             <p className="mt-4 text-white/70 max-w-md leading-relaxed">
-              Premium accounting, taxation and advisory for freelancers, contractors, SMEs and growing UK businesses.
+              Accounting, taxation and advisory services for individuals, contractors, SMEs and businesses across the United Kingdom.
             </p>
             <div className="flex gap-3 mt-6">
               {[Linkedin, Twitter, Facebook].map((I, i) => (
