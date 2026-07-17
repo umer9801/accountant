@@ -9,7 +9,7 @@ import {
   Star, ChevronDown,
 } from "lucide-react";
 import { Section, SectionHeading, Eyebrow, fadeUp } from "@/components/site/primitives";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
