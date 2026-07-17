@@ -52,34 +52,81 @@ function ContactPage() {
 
 function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [form, setForm] = useState({
+    name: "", email: "", phone: "", company: "", service: "Online Accounting", message: ""
+  });
+
+  const update = (field: string, value: string) =>
+    setForm(prev => ({ ...prev, [field]: value }));
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(""); setLoading(true);
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setSent(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <motion.form
       initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-      onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+      onSubmit={submit}
       className="rounded-3xl glass p-8 space-y-5"
     >
       <Eyebrow>Send us a message</Eyebrow>
       <div className="grid sm:grid-cols-2 gap-4">
-        <Field label="Full name" placeholder="Jane Smith" />
-        <Field label="Email" type="email" placeholder="jane@company.co.uk" />
+        <Field label="Full name" placeholder="Jane Smith" value={form.name} onChange={e => update("name", e.target.value)} required />
+        <Field label="Email" type="email" placeholder="jane@company.co.uk" value={form.email} onChange={e => update("email", e.target.value)} required />
       </div>
       <div className="grid sm:grid-cols-2 gap-4">
-        <Field label="Phone" placeholder="+44 …" />
-        <Field label="Company" placeholder="Acme Ltd" />
+        <Field label="Phone" placeholder="+44 …" value={form.phone} onChange={e => update("phone", e.target.value)} />
+        <Field label="Company" placeholder="Acme Ltd" value={form.company} onChange={e => update("company", e.target.value)} />
       </div>
       <div>
         <label className="text-sm font-medium">Service of interest</label>
-        <select className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3.5 outline-none">
-          <option>Online Accounting</option><option>Self Assessment</option><option>VAT Services</option>
-          <option>Corporation Tax</option><option>Payroll</option><option>Company Restoration</option>
+        <select
+          value={form.service}
+          onChange={e => update("service", e.target.value)}
+          className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3.5 outline-none"
+        >
+          <option>Online Accounting</option>
+          <option>Self Assessment</option>
+          <option>VAT Services</option>
+          <option>Corporation Tax</option>
+          <option>Payroll</option>
+          <option>Company Restoration</option>
         </select>
       </div>
       <div>
         <label className="text-sm font-medium">Message</label>
-        <textarea rows={5} placeholder="Tell us a bit about your business…" className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3.5 outline-none resize-none" />
+        <textarea
+          rows={5}
+          placeholder="Tell us a bit about your business…"
+          value={form.message}
+          onChange={e => update("message", e.target.value)}
+          required
+          className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3.5 outline-none resize-none"
+        />
       </div>
-      <button type="submit" className="w-full rounded-full gradient-brand px-6 py-3.5 text-white font-semibold flex items-center justify-center gap-2 hover:-translate-y-0.5 transition">
-        {sent ? "Message sent — we'll be in touch" : (<><Send className="h-4 w-4" /> Send message</>)}
+      {error && <p className="text-sm text-red-500">{error}</p>}
+      <button
+        type="submit"
+        disabled={loading || sent}
+        className="w-full rounded-full gradient-brand px-6 py-3.5 text-white font-semibold flex items-center justify-center gap-2 hover:-translate-y-0.5 transition disabled:opacity-70"
+      >
+        {sent ? "Message sent — we'll be in touch ✓" : loading ? "Sending…" : (<><Send className="h-4 w-4" /> Send message</>)}
       </button>
     </motion.form>
   );
