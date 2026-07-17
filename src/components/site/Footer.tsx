@@ -31,7 +31,9 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3">
-              <div className="h-11 w-11 rounded-2xl gradient-brand flex items-center justify-center font-bold">A</div>
+              <div className="h-11 w-11 rounded-2xl overflow-hidden bg-white flex items-center justify-center">
+                <img src="/logo.png" alt="Proper Accounting Ltd" className="h-10 w-10 object-contain" />
+              </div>
               <div>
                 <div className="font-bold">Proper Accounting Ltd</div>
                 <div className="text-xs text-white/60 uppercase tracking-widest">Manchester · UK</div>

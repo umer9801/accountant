@@ -45,7 +45,9 @@ export function Navbar() {
 
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5">
-              <div className="h-9 w-9 rounded-xl gradient-brand flex items-center justify-center text-white font-bold text-sm shadow-lg">A</div>
+              <div className="h-9 w-9 rounded-xl overflow-hidden bg-white flex items-center justify-center shadow-lg">
+                <img src="/logo.png" alt="Proper Accounting Ltd" className="h-8 w-8 object-contain" />
+              </div>
               <div className="hidden sm:block">
                 <div className="text-sm font-bold leading-tight">Proper Accounting Ltd</div>
                 <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Manchester · UK</div>
@@ -118,7 +120,9 @@ export function Navbar() {
               {/* Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
                 <div className="flex items-center gap-2.5">
-                  <div className="h-9 w-9 rounded-xl gradient-brand flex items-center justify-center text-white font-bold text-sm">A</div>
+                  <div className="h-9 w-9 rounded-xl overflow-hidden bg-white flex items-center justify-center">
+                    <img src="/logo.png" alt="Proper Accounting Ltd" className="h-8 w-8 object-contain" />
+                  </div>
                   <div>
                     <div className="text-sm font-bold text-white leading-tight">Proper Accounting Ltd</div>
                     <div className="text-[10px] uppercase tracking-widest text-white/50">Manchester · UK</div>

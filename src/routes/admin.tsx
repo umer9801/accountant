@@ -89,7 +89,9 @@ function LoginPage({ onLogin }: { onLogin: (t: string) => void }) {
       >
         <div className="bg-white rounded-3xl p-10 shadow-2xl">
           <div className="flex items-center gap-3 mb-8">
-            <div className="h-11 w-11 rounded-2xl gradient-brand flex items-center justify-center text-white font-bold">A</div>
+            <div className="h-11 w-11 rounded-2xl overflow-hidden bg-white border flex items-center justify-center">
+              <img src="/logo.png" alt="Proper Accounting Ltd" className="h-10 w-10 object-contain" />
+            </div>
             <div>
               <div className="font-bold text-lg">Proper Accounting Ltd</div>
               <div className="text-xs text-muted-foreground uppercase tracking-widest">Admin Portal</div>
@@ -191,7 +193,9 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
       <aside className={`fixed top-0 left-0 h-full w-64 bg-[color:var(--navy)] text-white z-30 flex flex-col transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0 lg:static lg:flex`}>
         <div className="p-6 border-b border-white/10">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-xl gradient-brand flex items-center justify-center font-bold text-sm">A</div>
+            <div className="h-10 w-10 rounded-xl overflow-hidden bg-white flex items-center justify-center">
+              <img src="/logo.png" alt="Proper Accounting Ltd" className="h-9 w-9 object-contain" />
+            </div>
             <div>
               <div className="font-bold text-sm">Proper Accounting Ltd</div>
               <div className="text-[10px] text-white/50 uppercase tracking-widest">Admin</div>
