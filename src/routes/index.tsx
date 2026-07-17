@@ -300,12 +300,22 @@ function Testimonials() {
   const [form, setForm] = useState({ name: "", role: "", quote: "", rating: 5 });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [fetchError, setFetchError] = useState(false);
 
   useEffect(() => {
-    fetch("/api/reviews")
-      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
-      .then(data => { if (Array.isArray(data)) setReviews(data); })
-      .catch(() => setReviews([]));
+    const controller = new AbortController();
+    fetch("/api/reviews", { signal: controller.signal })
+      .then(r => {
+        if (!r.ok) throw new Error("not ok");
+        return r.json();
+      })
+      .then(data => {
+        if (Array.isArray(data)) setReviews(data);
+      })
+      .catch(err => {
+        if (err.name !== "AbortError") setFetchError(true);
+      });
+    return () => controller.abort();
   }, []);
 
   const submit = async (e: React.FormEvent) => {
@@ -388,7 +398,7 @@ function Testimonials() {
         </motion.div>
       )}
 
-      {reviews.length === 0 ? (
+      {fetchError ? null : reviews.length === 0 ? (
         <div className="mt-14 text-center text-muted-foreground text-sm py-12 glass rounded-3xl">
           No reviews yet — be the first to leave one.
         </div>
