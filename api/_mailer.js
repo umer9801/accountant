@@ -28,7 +28,9 @@ export function adminEmailHtml({ name, email, phone, company, service, message }
         <!-- Header -->
         <tr>
           <td style="background:linear-gradient(135deg,#0B1F3A 0%,#1D4ED8 100%);padding:36px 40px;text-align:center;">
-            <img src="https://accountant-68hw4gydw-umarilyas811-9969s-projects.vercel.app/logo.png" alt="Proper Accounting Ltd" style="height:56px;object-fit:contain;margin-bottom:16px;" />
+            <div style="display:inline-block;background:rgba(255,255,255,0.15);border-radius:12px;padding:10px 24px;margin-bottom:16px;">
+              <span style="color:#ffffff;font-size:20px;font-weight:800;letter-spacing:1px;">PROPER ACCOUNTING LTD</span>
+            </div>
             <h1 style="color:#ffffff;margin:0;font-size:22px;font-weight:700;letter-spacing:-0.3px;">New Client Enquiry</h1>
             <p style="color:rgba(255,255,255,0.7);margin:8px 0 0;font-size:14px;">Submitted via properaccounting.co.uk</p>
           </td>
@@ -116,7 +118,9 @@ export function userEmailHtml({ name, service }) {
         <!-- Header -->
         <tr>
           <td style="background:linear-gradient(135deg,#0B1F3A 0%,#1D4ED8 100%);padding:36px 40px;text-align:center;">
-            <img src="https://accountant-68hw4gydw-umarilyas811-9969s-projects.vercel.app/logo.png" alt="Proper Accounting Ltd" style="height:56px;object-fit:contain;margin-bottom:16px;" />
+            <div style="display:inline-block;background:rgba(255,255,255,0.15);border-radius:12px;padding:10px 24px;margin-bottom:16px;">
+              <span style="color:#ffffff;font-size:20px;font-weight:800;letter-spacing:1px;">PROPER ACCOUNTING LTD</span>
+            </div>
             <h1 style="color:#ffffff;margin:0;font-size:22px;font-weight:700;">Thank You, ${name}</h1>
             <p style="color:rgba(255,255,255,0.7);margin:8px 0 0;font-size:14px;">We've received your enquiry</p>
           </td>

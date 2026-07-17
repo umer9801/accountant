@@ -292,31 +292,128 @@ function Industries() {
 }
 
 /* ---------------- TESTIMONIALS ---------------- */
+type Review = { _id: string; name: string; role: string; quote: string; rating: number };
+
 function Testimonials() {
-  const list = [
-    { name: "Sarah Whitmore", role: "Founder, Studio Nova", quote: "Proper Accounting Ltd transformed how we handle finances. The cloud dashboard and proactive advice are unmatched." },
-    { name: "James Patel", role: "Director, Patel Ltd", quote: "Fixed pricing, responsive team and huge tax savings. Best decision we made this year." },
-    { name: "Emma Clark", role: "Freelance Consultant", quote: "My self assessment used to be a nightmare. Now it's done in a click." },
-    { name: "David Rowe", role: "Property Investor", quote: "They handle my portfolio taxes seamlessly. Genuinely feels like a partnership." },
-  ];
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [showForm, setShowForm] = useState(false);
+  const [form, setForm] = useState({ name: "", role: "", quote: "", rating: 5 });
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/reviews")
+      .then(r => r.json())
+      .then(data => Array.isArray(data) && setReviews(data))
+      .catch(() => {});
+  }, []);
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await fetch("/api/reviews", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      setSubmitted(true);
+      setShowForm(false);
+    } catch {}
+    setLoading(false);
+  };
+
   return (
     <Section>
-      <SectionHeading eyebrow="Testimonials" title={<>Loved by <span className="text-gradient">UK businesses</span></>} />
-      <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-        {list.map((t, i) => (
-          <motion.div key={t.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="rounded-3xl p-6 bg-white shadow-[0_6px_30px_-12px_rgba(11,31,58,0.15)]">
-            <div className="flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-[color:var(--emerald)] text-[color:var(--emerald)]" />)}</div>
-            <p className="mt-4 text-sm leading-relaxed">"{t.quote}"</p>
-            <div className="mt-5 flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full gradient-brand text-white flex items-center justify-center font-semibold">{t.name[0]}</div>
-              <div>
-                <div className="text-sm font-semibold">{t.name}</div>
-                <div className="text-xs text-muted-foreground">{t.role}</div>
-              </div>
-            </div>
-          </motion.div>
-        ))}
+      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+        <SectionHeading eyebrow="Client Reviews" title={<>What our clients <span className="text-gradient">say</span></>} />
+        <button
+          onClick={() => setShowForm(!showForm)}
+          className="inline-flex items-center gap-2 rounded-full glass px-5 py-2.5 text-sm font-semibold hover:-translate-y-0.5 transition shrink-0"
+        >
+          <Star className="h-4 w-4 text-[color:var(--emerald)]" />
+          {showForm ? "Cancel" : "Add a Review"}
+        </button>
       </div>
+
+      {/* Review form */}
+      {showForm && (
+        <motion.form
+          initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
+          onSubmit={submit}
+          className="mt-8 glass rounded-3xl p-8 grid sm:grid-cols-2 gap-4"
+        >
+          <div>
+            <label className="text-sm font-medium">Your Name *</label>
+            <input required value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))}
+              className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 outline-none focus:ring-2 focus:ring-[color:var(--royal)]/30"
+              placeholder="Jane Smith" />
+          </div>
+          <div>
+            <label className="text-sm font-medium">Your Role / Company</label>
+            <input value={form.role} onChange={e => setForm(p => ({ ...p, role: e.target.value }))}
+              className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 outline-none focus:ring-2 focus:ring-[color:var(--royal)]/30"
+              placeholder="Director, Acme Ltd" />
+          </div>
+          <div className="sm:col-span-2">
+            <label className="text-sm font-medium">Your Review *</label>
+            <textarea required rows={3} value={form.quote} onChange={e => setForm(p => ({ ...p, quote: e.target.value }))}
+              className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 outline-none resize-none focus:ring-2 focus:ring-[color:var(--royal)]/30"
+              placeholder="Share your experience with Proper Accounting Ltd…" />
+          </div>
+          <div>
+            <label className="text-sm font-medium">Rating</label>
+            <div className="flex gap-2 mt-2">
+              {[1,2,3,4,5].map(n => (
+                <button type="button" key={n} onClick={() => setForm(p => ({ ...p, rating: n }))}>
+                  <Star className={`h-6 w-6 transition ${n <= form.rating ? "fill-yellow-400 text-yellow-400" : "text-slate-300 fill-slate-200"}`} />
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="sm:col-span-2 flex items-center gap-3">
+            <button type="submit" disabled={loading}
+              className="rounded-full gradient-brand text-white px-6 py-3 text-sm font-semibold disabled:opacity-60 transition hover:-translate-y-0.5">
+              {loading ? "Submitting…" : "Submit Review"}
+            </button>
+            <p className="text-xs text-muted-foreground">Your review will be published after approval.</p>
+          </div>
+        </motion.form>
+      )}
+
+      {submitted && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          className="mt-6 rounded-2xl bg-green-50 border border-green-200 px-6 py-4 text-sm text-green-700 font-medium">
+          ✓ Thank you! Your review has been submitted and will appear after approval.
+        </motion.div>
+      )}
+
+      {reviews.length === 0 ? (
+        <div className="mt-14 text-center text-muted-foreground text-sm py-12 glass rounded-3xl">
+          No reviews yet — be the first to leave one.
+        </div>
+      ) : (
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {reviews.map((t, i) => (
+            <motion.div key={t._id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+              className="rounded-3xl p-6 bg-white shadow-[0_6px_30px_-12px_rgba(11,31,58,0.15)]">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, j) => (
+                  <Star key={j} className={`h-4 w-4 ${j < t.rating ? "fill-yellow-400 text-yellow-400" : "fill-slate-200 text-slate-200"}`} />
+                ))}
+              </div>
+              <p className="mt-4 text-sm leading-relaxed">"{t.quote}"</p>
+              <div className="mt-5 flex items-center gap-3">
+                <div className="h-10 w-10 rounded-full gradient-brand text-white flex items-center justify-center font-semibold">{t.name[0]}</div>
+                <div>
+                  <div className="text-sm font-semibold">{t.name}</div>
+                  <div className="text-xs text-muted-foreground">{t.role}</div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      )}
     </Section>
   );
 }
