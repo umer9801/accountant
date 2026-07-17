@@ -169,14 +169,29 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
     if (selectedContact?._id === id) setSelectedContact(null);
   };
 
+  const markContactRead = async (id: string) => {
+    try {
+      await apiFetch(`/admin/contacts/${id}`, { method: "PATCH" });
+      setContacts(prev => prev.map(c => c._id === id ? { ...c, read: true } : c));
+    } catch {}
+  };
+
   const approveReview = async (id: string) => {
-    await apiFetch(`/admin/reviews/${id}`, { method: "PATCH" });
-    setReviews(prev => prev.map(r => r._id === id ? { ...r, status: "approved" } : r));
+    try {
+      await apiFetch(`/admin/reviews/${id}`, { method: "PATCH" });
+      setReviews(prev => prev.map(r => r._id === id ? { ...r, status: "approved" } : r));
+    } catch (e) {
+      alert("Failed to approve: " + e);
+    }
   };
 
   const deleteReview = async (id: string) => {
-    await apiFetch(`/admin/reviews/${id}`, { method: "DELETE" });
-    setReviews(prev => prev.filter(r => r._id !== id));
+    try {
+      await apiFetch(`/admin/reviews/${id}`, { method: "DELETE" });
+      setReviews(prev => prev.filter(r => r._id !== id));
+    } catch (e) {
+      alert("Failed to delete: " + e);
+    }
   };
 
   const pendingReviews = reviews.filter(r => r.status === "pending").length;
@@ -276,7 +291,10 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
             <ContactsTab
               contacts={contacts}
               selected={selectedContact}
-              onSelect={setSelectedContact}
+              onSelect={(c) => {
+                setSelectedContact(c);
+                if (c && !c.read) markContactRead(c._id);
+              }}
               onDelete={deleteContact}
             />
           ) : (
