@@ -169,13 +169,13 @@ export function Navbar() {
                   Book Free Consultation <ArrowRight className="h-4 w-4" />
                 </Link>
                 <div className="flex items-center gap-3 px-2 pt-2">
-                  <a href="tel:+441610000000" className="flex items-center gap-2 text-xs text-white/50 hover:text-white transition">
-                    <Phone className="h-3.5 w-3.5" /> +44 161 000 0000
+                  <a href="tel:07774999123" className="flex items-center gap-2 text-xs text-white/50 hover:text-white transition">
+                    <Phone className="h-3.5 w-3.5" /> 07774999123
                   </a>
                 </div>
                 <div className="flex items-center gap-3 px-2">
-                  <a href="mailto:hello@Proper Accounting Ltd.uk" className="flex items-center gap-2 text-xs text-white/50 hover:text-white transition">
-                    <Mail className="h-3.5 w-3.5" /> hello@Proper Accounting Ltd.uk
+                  <a href="mailto:info@properaccounting.co.uk" className="flex items-center gap-2 text-xs text-white/50 hover:text-white transition">
+                    <Mail className="h-3.5 w-3.5" /> info@properaccounting.co.uk
                   </a>
                 </div>
               </div>

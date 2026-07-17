@@ -2,6 +2,11 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, ArrowRight } from "lucide-react";
 
+const PHONE = "07774999123";
+const WHATSAPP = "447774999123";
+const ADDRESS = "Bartle House, 9 Oxford Court, Manchester, England, M2 3WQ";
+const MAP_URL = "https://maps.google.com/?q=Bartle+House+9+Oxford+Court+Manchester+M2+3WQ";
+
 export function Footer() {
   return (
     <footer className="relative mt-32 bg-[color:var(--navy)] text-white overflow-hidden">
@@ -56,9 +61,20 @@ export function Footer() {
           <div>
             <div className="font-semibold mb-4">Get in touch</div>
             <ul className="space-y-3 text-white/70 text-sm">
-              <li className="flex items-start gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-[color:var(--emerald)]" /> Manchester, United Kingdom</li>
-              <li className="flex items-start gap-3"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-[color:var(--emerald)]" /> +44 (0) 161 000 0000</li>
-              <li className="flex items-start gap-3"><Mail className="h-4 w-4 mt-0.5 shrink-0 text-[color:var(--emerald)]" /> hello@accountant.uk</li>
+              <li className="flex items-start gap-3">
+                <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-[color:var(--emerald)]" />
+                <a href={MAP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition leading-snug">
+                  {ADDRESS}
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone className="h-4 w-4 mt-0.5 shrink-0 text-[color:var(--emerald)]" />
+                <a href={`tel:${PHONE}`} className="hover:text-white transition">{PHONE}</a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mail className="h-4 w-4 mt-0.5 shrink-0 text-[color:var(--emerald)]" />
+                <a href="mailto:info@properaccounting.co.uk" className="hover:text-white transition">info@properaccounting.co.uk</a>
+              </li>
               <li className="text-xs mt-4 text-white/50">Mon–Fri · 9:00 – 18:00 GMT</li>
             </ul>
           </div>

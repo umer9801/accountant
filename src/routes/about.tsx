@@ -7,7 +7,7 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — Proper Accounting Ltd" },
-      { name: "description", content: "Over 15 years of trusted accounting, tax and advisory services for UK businesses. ICAEW and ACCA regulated." },
+      { name: "description", content: "Over 15 years of trusted accounting, tax and advisory services for UK businesses. IFW and ACCA regulated." },
       { property: "og:title", content: "About Proper Accounting Ltd" },
       { property: "og:description", content: "Regulated UK accountants serving businesses across Manchester and the UK." },
     ],
@@ -43,7 +43,7 @@ function AboutPage() {
                 Proper Accounting Ltd was established to address a clear gap in the market: businesses of all sizes needed access to the same quality of financial advice previously reserved for large corporate clients. We set out to change that.
               </p>
               <p>
-                Our team comprises qualified accountants registered with ICAEW and ACCA, with backgrounds spanning public practice, corporate finance and HMRC compliance. Every engagement is handled by a senior qualified professional — not passed to junior staff.
+                Our team comprises qualified accountants registered with IFW and ACCA, with backgrounds spanning public practice, corporate finance and HMRC compliance. Every engagement is handled by a senior qualified professional — not passed to junior staff.
               </p>
               <p>
                 We work with clients across a broad range of sectors including property, professional services, healthcare, retail, construction and technology. Whether you are navigating your first year in business or managing a complex group structure, we apply the same standard of care.
@@ -58,7 +58,7 @@ function AboutPage() {
             className="grid grid-cols-2 gap-4"
           >
             {[
-              { icon: ShieldCheck, label: "ICAEW & ACCA Regulated", desc: "All work carried out under professional regulatory standards." },
+              { icon: ShieldCheck, label: "IFW & ACCA Regulated", desc: "All work carried out under professional regulatory standards." },
               { icon: Users, label: "Dedicated Senior Accountant", desc: "One qualified point of contact for your account at all times." },
               { icon: Target, label: "Fixed, Transparent Fees", desc: "No surprise invoices — clear pricing agreed upfront." },
               { icon: Heart, label: "Long-Term Client Relationships", desc: "We focus on continuity, not one-off engagements." },

@@ -39,7 +39,7 @@ function ContactPage() {
           <iframe
             title="Map"
             className="w-full h-[420px] border-0"
-            src="https://www.google.com/maps?q=Manchester,UK&output=embed"
+            src="https://www.google.com/maps?q=Bartle+House+9+Oxford+Court+Manchester+M2+3WQ&output=embed"
             loading="lazy"
           />
         </motion.div>
@@ -65,7 +65,7 @@ function ContactForm() {
     e.preventDefault();
     setError(""); setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -143,21 +143,21 @@ function Field({ label, ...props }: { label: string } & React.InputHTMLAttribute
 
 function ContactSidebar() {
   const items = [
-    { icon: Phone, label: "Call us", value: "+44 (0) 161 000 0000" },
-    { icon: Mail, label: "Email us", value: "hello@accountant.uk" },
-    { icon: MessageCircle, label: "WhatsApp", value: "+44 7000 000 000" },
-    { icon: MapPin, label: "Office", value: "1 King Street, Manchester M2 6AW" },
+    { icon: Phone, label: "Call us", value: "07774999123", href: "tel:07774999123" },
+    { icon: Mail, label: "Email us", value: "info@properaccounting.co.uk", href: "mailto:info@properaccounting.co.uk" },
+    { icon: MessageCircle, label: "WhatsApp", value: "07774999123", href: "https://wa.me/447774999123" },
+    { icon: MapPin, label: "Office", value: "Bartle House, 9 Oxford Court, Manchester, M2 3WQ", href: "https://maps.google.com/?q=Bartle+House+9+Oxford+Court+Manchester+M2+3WQ" },
   ];
   return (
     <div className="space-y-4">
       {items.map((it, i) => (
-        <motion.div key={it.label} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="rounded-3xl glass p-6 flex items-start gap-4">
+        <motion.a key={it.label} href={it.href} target={it.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="rounded-3xl glass p-6 flex items-start gap-4 hover:ring-2 hover:ring-[color:var(--royal)]/30 transition">
           <div className="h-12 w-12 rounded-2xl gradient-brand flex items-center justify-center text-white shrink-0"><it.icon className="h-5 w-5" /></div>
           <div>
             <div className="text-xs uppercase tracking-widest text-muted-foreground">{it.label}</div>
-            <div className="mt-1 font-semibold">{it.value}</div>
+            <div className="mt-1 font-semibold text-sm leading-snug">{it.value}</div>
           </div>
-        </motion.div>
+        </motion.a>
       ))}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-3xl bg-[color:var(--navy)] text-white p-6">
         <div className="flex items-center gap-2 font-semibold"><Clock className="h-4 w-4 text-[color:var(--emerald)]" /> Office hours</div>

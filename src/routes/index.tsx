@@ -93,7 +93,7 @@ function Hero() {
 
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { s: "ICAEW", l: "Regulated Practice", raw: true },
+              { s: "IFW", l: "Regulated Practice", raw: true },
               { s: "MTD", l: "Ready & Compliant", raw: true },
               { s: "Fixed", l: "Monthly Pricing", raw: true },
               { s: "No", l: "Hidden Charges", raw: true },

@@ -6,7 +6,7 @@ import {
   Users, MessageSquare, Clock, ChevronRight, X, Menu
 } from "lucide-react";
 
-const API = "http://localhost:5000/api";
+const API = "/api";
 
 export const Route = createFileRoute("/admin")({
   component: AdminPage,

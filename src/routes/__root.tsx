@@ -8,6 +8,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { BackToTop } from "@/components/site/BackToTop";
 import { CursorGlow } from "@/components/site/CursorGlow";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 
 function NotFoundComponent() {
   return (
@@ -78,6 +79,7 @@ function RootComponent() {
       </main>
       <Footer />
       <BackToTop />
+      <WhatsAppButton />
     </QueryClientProvider>
   );
 }
