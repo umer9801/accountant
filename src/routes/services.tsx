@@ -6,9 +6,9 @@ import { PageHero, Section, SectionHeading } from "@/components/site/primitives"
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Accountant Manchester" },
+      { title: "Services — Proper Accounting Ltd" },
       { name: "description", content: "Comprehensive accounting, tax and advisory services for UK businesses." },
-      { property: "og:title", content: "Services — Accountant Manchester" },
+      { property: "og:title", content: "Services — Proper Accounting Ltd" },
       { property: "og:description", content: "Cloud accounting, tax, payroll, VAT and business advisory." },
     ],
   }),

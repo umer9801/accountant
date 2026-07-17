@@ -47,7 +47,7 @@ export function Navbar() {
             <Link to="/" className="flex items-center gap-2.5">
               <div className="h-9 w-9 rounded-xl gradient-brand flex items-center justify-center text-white font-bold text-sm shadow-lg">A</div>
               <div className="hidden sm:block">
-                <div className="text-sm font-bold leading-tight">Accountant</div>
+                <div className="text-sm font-bold leading-tight">Proper Accounting Ltd</div>
                 <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Manchester · UK</div>
               </div>
             </Link>
@@ -120,7 +120,7 @@ export function Navbar() {
                 <div className="flex items-center gap-2.5">
                   <div className="h-9 w-9 rounded-xl gradient-brand flex items-center justify-center text-white font-bold text-sm">A</div>
                   <div>
-                    <div className="text-sm font-bold text-white leading-tight">Accountant</div>
+                    <div className="text-sm font-bold text-white leading-tight">Proper Accounting Ltd</div>
                     <div className="text-[10px] uppercase tracking-widest text-white/50">Manchester · UK</div>
                   </div>
                 </div>
@@ -174,8 +174,8 @@ export function Navbar() {
                   </a>
                 </div>
                 <div className="flex items-center gap-3 px-2">
-                  <a href="mailto:hello@accountant.uk" className="flex items-center gap-2 text-xs text-white/50 hover:text-white transition">
-                    <Mail className="h-3.5 w-3.5" /> hello@accountant.uk
+                  <a href="mailto:hello@Proper Accounting Ltd.uk" className="flex items-center gap-2 text-xs text-white/50 hover:text-white transition">
+                    <Mail className="h-3.5 w-3.5" /> hello@Proper Accounting Ltd.uk
                   </a>
                 </div>
               </div>

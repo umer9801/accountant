@@ -14,9 +14,9 @@ import { useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Accountant Manchester — Premium UK Accounting" },
+      { title: "Proper Accounting Ltd — Premium UK Accounting" },
       { name: "description", content: "Modern, reliable and affordable UK accounting for freelancers, contractors, SMEs and growing businesses." },
-      { property: "og:title", content: "Accountant Manchester" },
+      { property: "og:title", content: "Proper Accounting Ltd" },
       { property: "og:description", content: "Your trusted accounting partner in the UK." },
       { property: "og:image", content: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80" },
     ],
@@ -73,7 +73,7 @@ function Hero() {
             transition={{ duration: 0.9, delay: 0.15 }}
             className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-xl"
           >
-            Managing finances shouldn't slow your business down. At Accountant Manchester,
+            Managing finances shouldn't slow your business down. At Proper Accounting Ltd,
             we deliver modern, reliable and affordable accounting for freelancers, SMEs, landlords
             and growing businesses across the United Kingdom.
           </motion.p>
@@ -294,7 +294,7 @@ function Industries() {
 /* ---------------- TESTIMONIALS ---------------- */
 function Testimonials() {
   const list = [
-    { name: "Sarah Whitmore", role: "Founder, Studio Nova", quote: "Accountant Manchester transformed how we handle finances. The cloud dashboard and proactive advice are unmatched." },
+    { name: "Sarah Whitmore", role: "Founder, Studio Nova", quote: "Proper Accounting Ltd transformed how we handle finances. The cloud dashboard and proactive advice are unmatched." },
     { name: "James Patel", role: "Director, Patel Ltd", quote: "Fixed pricing, responsive team and huge tax savings. Best decision we made this year." },
     { name: "Emma Clark", role: "Freelance Consultant", quote: "My self assessment used to be a nightmare. Now it's done in a click." },
     { name: "David Rowe", role: "Property Investor", quote: "They handle my portfolio taxes seamlessly. Genuinely feels like a partnership." },

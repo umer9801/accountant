@@ -7,9 +7,9 @@ import { PageHero, Section, SectionHeading, Eyebrow } from "@/components/site/pr
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Accountant Manchester" },
-      { name: "description", content: "Get in touch with Accountant Manchester. Book a free consultation today." },
-      { property: "og:title", content: "Contact Accountant Manchester" },
+      { title: "Contact — Proper Accounting Ltd" },
+      { name: "description", content: "Get in touch with Proper Accounting Ltd. Book a free consultation today." },
+      { property: "og:title", content: "Contact Proper Accounting Ltd" },
       { property: "og:description", content: "Phone, email, WhatsApp or office visit — we're here to help." },
     ],
   }),

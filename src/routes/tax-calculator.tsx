@@ -9,9 +9,9 @@ import { Section, SectionHeading, Eyebrow, PageHero } from "@/components/site/pr
 export const Route = createFileRoute("/tax-calculator")({
   head: () => ({
     meta: [
-      { title: "UK Tax Calculator — Accountant Manchester" },
+      { title: "UK Tax Calculator — Proper Accounting Ltd" },
       { name: "description", content: "Free UK income tax, NI, corporation tax, VAT and dividend calculators." },
-      { property: "og:title", content: "UK Tax Calculator — Accountant Manchester" },
+      { property: "og:title", content: "UK Tax Calculator — Proper Accounting Ltd" },
       { property: "og:description", content: "Instant tax breakdowns for salary, dividends, corporation tax and more." },
     ],
   }),

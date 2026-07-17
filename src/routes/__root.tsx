@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Outlet, createRootRouteWithContext } from "@tanstack/react-router";
+import { Outlet, createRootRouteWithContext, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -52,11 +52,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const [loaded, setLoaded] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isAdmin = pathname.startsWith("/admin");
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 2400);
     return () => clearTimeout(t);
   }, []);
+
+  if (isAdmin) {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <Outlet />
+      </QueryClientProvider>
+    );
+  }
 
   return (
     <QueryClientProvider client={queryClient}>

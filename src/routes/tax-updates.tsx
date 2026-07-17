@@ -7,9 +7,9 @@ import { PageHero, Section, Eyebrow } from "@/components/site/primitives";
 export const Route = createFileRoute("/tax-updates")({
   head: () => ({
     meta: [
-      { title: "Tax Updates — Accountant Manchester" },
+      { title: "Tax Updates — Proper Accounting Ltd" },
       { name: "description", content: "Latest UK tax news, HMRC updates, VAT changes and Making Tax Digital insights." },
-      { property: "og:title", content: "UK Tax Updates — Accountant Manchester" },
+      { property: "og:title", content: "UK Tax Updates — Proper Accounting Ltd" },
       { property: "og:description", content: "Insights, guides and updates from our chartered accountants." },
     ],
   }),

@@ -6,9 +6,9 @@ import { PageHero, Section, SectionHeading, Eyebrow } from "@/components/site/pr
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Accountant Manchester" },
+      { title: "About — Proper Accounting Ltd" },
       { name: "description", content: "Over 15 years of trusted accounting, tax and advisory services for UK businesses. ICAEW and ACCA regulated." },
-      { property: "og:title", content: "About Accountant Manchester" },
+      { property: "og:title", content: "About Proper Accounting Ltd" },
       { property: "og:description", content: "Regulated UK accountants serving businesses across Manchester and the UK." },
     ],
   }),
@@ -40,7 +40,7 @@ function AboutPage() {
             </h2>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Accountant Manchester was established to address a clear gap in the market: businesses of all sizes needed access to the same quality of financial advice previously reserved for large corporate clients. We set out to change that.
+                Proper Accounting Ltd was established to address a clear gap in the market: businesses of all sizes needed access to the same quality of financial advice previously reserved for large corporate clients. We set out to change that.
               </p>
               <p>
                 Our team comprises qualified accountants registered with ICAEW and ACCA, with backgrounds spanning public practice, corporate finance and HMRC compliance. Every engagement is handled by a senior qualified professional — not passed to junior staff.

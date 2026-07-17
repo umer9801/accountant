@@ -28,7 +28,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <div className="h-11 w-11 rounded-2xl gradient-brand flex items-center justify-center font-bold">A</div>
               <div>
-                <div className="font-bold">Accountant Manchester</div>
+                <div className="font-bold">Proper Accounting Ltd</div>
                 <div className="text-xs text-white/60 uppercase tracking-widest">Manchester · UK</div>
               </div>
             </div>
@@ -65,7 +65,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-4 text-xs text-white/50">
-          <div>© {new Date().getFullYear()} Accountant Manchester. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} Proper Accounting Ltd. All rights reserved.</div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white">Privacy</a>
             <a href="#" className="hover:text-white">Terms</a>
