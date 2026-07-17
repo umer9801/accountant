@@ -303,9 +303,9 @@ function Testimonials() {
 
   useEffect(() => {
     fetch("/api/reviews")
-      .then(r => r.json())
-      .then(data => Array.isArray(data) && setReviews(data))
-      .catch(() => {});
+      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+      .then(data => { if (Array.isArray(data)) setReviews(data); })
+      .catch(() => setReviews([]));
   }, []);
 
   const submit = async (e: React.FormEvent) => {
