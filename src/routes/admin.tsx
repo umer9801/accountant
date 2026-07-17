@@ -170,7 +170,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
   };
 
   const approveReview = async (id: string) => {
-    await apiFetch(`/admin/reviews/${id}/approve`, { method: "PATCH" });
+    await apiFetch(`/admin/reviews/${id}`, { method: "PATCH" });
     setReviews(prev => prev.map(r => r._id === id ? { ...r, status: "approved" } : r));
   };
 

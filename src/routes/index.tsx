@@ -93,7 +93,7 @@ function Hero() {
 
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { s: "IFW", l: "Regulated Practice", raw: true },
+              { s: "IFA", l: "Regulated Practice", raw: true },
               { s: "MTD", l: "Ready & Compliant", raw: true },
               { s: "Fixed", l: "Monthly Pricing", raw: true },
               { s: "No", l: "Hidden Charges", raw: true },
@@ -297,6 +297,7 @@ type Review = { _id: string; name: string; role: string; quote: string; rating: 
 function Testimonials() {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [showForm, setShowForm] = useState(false);
+  const [showAll, setShowAll] = useState(false);
   const [form, setForm] = useState({ name: "", role: "", quote: "", rating: 5 });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -360,26 +361,20 @@ function Testimonials() {
               placeholder="Jane Smith" />
           </div>
           <div>
-            <label className="text-sm font-medium">Your Role / Company</label>
-            <input value={form.role} onChange={e => setForm(p => ({ ...p, role: e.target.value }))}
-              className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 outline-none focus:ring-2 focus:ring-[color:var(--royal)]/30"
-              placeholder="Director, Acme Ltd" />
-          </div>
-          <div className="sm:col-span-2">
-            <label className="text-sm font-medium">Your Review *</label>
-            <textarea required rows={3} value={form.quote} onChange={e => setForm(p => ({ ...p, quote: e.target.value }))}
-              className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 outline-none resize-none focus:ring-2 focus:ring-[color:var(--royal)]/30"
-              placeholder="Share your experience with Proper Accounting Ltd…" />
-          </div>
-          <div>
             <label className="text-sm font-medium">Rating</label>
-            <div className="flex gap-2 mt-2">
+            <div className="flex gap-2 mt-3">
               {[1,2,3,4,5].map(n => (
                 <button type="button" key={n} onClick={() => setForm(p => ({ ...p, rating: n }))}>
                   <Star className={`h-6 w-6 transition ${n <= form.rating ? "fill-yellow-400 text-yellow-400" : "text-slate-300 fill-slate-200"}`} />
                 </button>
               ))}
             </div>
+          </div>
+          <div className="sm:col-span-2">
+            <label className="text-sm font-medium">Your Review *</label>
+            <textarea required rows={3} value={form.quote} onChange={e => setForm(p => ({ ...p, quote: e.target.value }))}
+              className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 outline-none resize-none focus:ring-2 focus:ring-[color:var(--royal)]/30"
+              placeholder="Share your experience with Proper Accounting Ltd…" />
           </div>
           <div className="sm:col-span-2 flex items-center gap-3">
             <button type="submit" disabled={loading}
@@ -403,26 +398,60 @@ function Testimonials() {
           No reviews yet — be the first to leave one.
         </div>
       ) : (
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {reviews.map((t, i) => (
-            <motion.div key={t._id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-              className="rounded-3xl p-6 bg-white shadow-[0_6px_30px_-12px_rgba(11,31,58,0.15)]">
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className={`h-4 w-4 ${j < t.rating ? "fill-yellow-400 text-yellow-400" : "fill-slate-200 text-slate-200"}`} />
-                ))}
-              </div>
-              <p className="mt-4 text-sm leading-relaxed">"{t.quote}"</p>
-              <div className="mt-5 flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full gradient-brand text-white flex items-center justify-center font-semibold">{t.name[0]}</div>
-                <div>
-                  <div className="text-sm font-semibold">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{t.role}</div>
+        <>
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {reviews.slice(0, 3).map((t, i) => (
+              <motion.div key={t._id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+                className="rounded-3xl p-6 bg-white shadow-[0_6px_30px_-12px_rgba(11,31,58,0.15)]">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} className={`h-4 w-4 ${j < t.rating ? "fill-yellow-400 text-yellow-400" : "fill-slate-200 text-slate-200"}`} />
+                  ))}
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                <p className="mt-4 text-sm leading-relaxed">"{t.quote}"</p>
+                <div className="mt-5 flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full gradient-brand text-white flex items-center justify-center font-semibold">{t.name[0]}</div>
+                  <div>
+                    <div className="text-sm font-semibold">{t.name}</div>
+                    {t.role && <div className="text-xs text-muted-foreground">{t.role}</div>}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          {reviews.length > 3 && (
+            <div className="mt-8 text-center">
+              <button
+                onClick={() => setShowAll(prev => !prev)}
+                className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-semibold hover:-translate-y-0.5 transition"
+              >
+                {showAll ? "Show Less" : `View All ${reviews.length} Reviews`}
+              </button>
+              {showAll && (
+                <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                  {reviews.slice(3).map((t, i) => (
+                    <motion.div key={t._id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06 }}
+                      className="rounded-3xl p-6 bg-white shadow-[0_6px_30px_-12px_rgba(11,31,58,0.15)]">
+                      <div className="flex gap-0.5">
+                        {[...Array(5)].map((_, j) => (
+                          <Star key={j} className={`h-4 w-4 ${j < t.rating ? "fill-yellow-400 text-yellow-400" : "fill-slate-200 text-slate-200"}`} />
+                        ))}
+                      </div>
+                      <p className="mt-4 text-sm leading-relaxed">"{t.quote}"</p>
+                      <div className="mt-5 flex items-center gap-3">
+                        <div className="h-10 w-10 rounded-full gradient-brand text-white flex items-center justify-center font-semibold">{t.name[0]}</div>
+                        <div>
+                          <div className="text-sm font-semibold">{t.name}</div>
+                          {t.role && <div className="text-xs text-muted-foreground">{t.role}</div>}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </>
       )}
     </Section>
   );
