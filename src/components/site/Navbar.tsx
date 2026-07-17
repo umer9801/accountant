@@ -46,7 +46,7 @@ export function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5">
               <div className="h-9 w-9 rounded-xl overflow-hidden bg-white flex items-center justify-center shadow-lg">
-                <img src="/images/logo.png" alt="Proper Accounting Ltd" className="h-8 w-8 object-contain" />
+                <img src="/logo.png" alt="Proper Accounting Ltd" className="h-8 w-8 object-contain" />
               </div>
               <div className="hidden sm:block">
                 <div className="text-sm font-bold leading-tight">Proper Accounting Ltd</div>
@@ -121,7 +121,7 @@ export function Navbar() {
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
                 <div className="flex items-center gap-2.5">
                   <div className="h-9 w-9 rounded-xl overflow-hidden bg-white flex items-center justify-center">
-                    <img src="/images/logo.png" alt="Proper Accounting Ltd" className="h-8 w-8 object-contain" />
+                    <img src="/logo.png" alt="Proper Accounting Ltd" className="h-8 w-8 object-contain" />
                   </div>
                   <div>
                     <div className="text-sm font-bold text-white leading-tight">Proper Accounting Ltd</div>
