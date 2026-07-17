@@ -20,7 +20,7 @@ export function Preloader() {
             transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
           />
           <div className="absolute inset-3 rounded-full bg-white flex items-center justify-center shadow-2xl">
-            <img src="/logo.png" alt="Proper Accounting Ltd" className="h-20 w-20 object-contain" />
+            <img src="/images/logo.png" alt="Proper Accounting Ltd" className="h-20 w-20 object-contain" />
           </div>
           {icons.map((Icon, i) => {
             const angle = (i / icons.length) * Math.PI * 2;
