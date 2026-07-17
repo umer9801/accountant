@@ -45,8 +45,8 @@ export function Navbar() {
 
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5">
-              <div className="h-9 w-9 rounded-xl overflow-hidden bg-white flex items-center justify-center shadow-lg">
-                <img src="/logo.png" alt="Proper Accounting Ltd" className="h-8 w-8 object-contain" />
+              <div className="h-12 w-12 rounded-xl overflow-hidden bg-white flex items-center justify-center shadow-lg">
+                <img src="/logo.png" alt="Proper Accounting Ltd" className="h-11 w-11 object-contain" />
               </div>
               <div className="hidden sm:block">
                 <div className="text-sm font-bold leading-tight">Proper Accounting Ltd</div>
