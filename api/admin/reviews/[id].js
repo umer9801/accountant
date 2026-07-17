@@ -5,21 +5,38 @@ import { ObjectId } from "mongodb";
 export default async function handler(req, res) {
   cors(res);
   if (req.method === "OPTIONS") return res.status(200).end();
-  if (!requireAdmin(req)) return res.status(401).json({ error: "Unauthorized" });
+
+  const isAdmin = requireAdmin(req);
+  if (!isAdmin) return res.status(401).json({ error: "Unauthorized" });
 
   const { id } = req.query;
-  const db = await getDb();
-  const col = db.collection("reviews");
 
-  if (req.method === "DELETE") {
-    await col.deleteOne({ _id: new ObjectId(id) });
-    return res.status(200).json({ success: true });
+  if (!id) return res.status(400).json({ error: "ID required" });
+
+  let objectId;
+  try {
+    objectId = new ObjectId(id);
+  } catch {
+    return res.status(400).json({ error: "Invalid ID format" });
   }
 
-  if (req.method === "PATCH") {
-    await col.updateOne({ _id: new ObjectId(id) }, { $set: { status: "approved" } });
-    return res.status(200).json({ success: true });
-  }
+  try {
+    const db = await getDb();
+    const col = db.collection("reviews");
 
-  return res.status(405).json({ error: "Method not allowed" });
+    if (req.method === "DELETE") {
+      await col.deleteOne({ _id: objectId });
+      return res.status(200).json({ success: true });
+    }
+
+    if (req.method === "PATCH") {
+      await col.updateOne({ _id: objectId }, { $set: { status: "approved" } });
+      return res.status(200).json({ success: true });
+    }
+
+    return res.status(405).json({ error: "Method not allowed" });
+  } catch (err) {
+    console.error("reviews/[id] error:", err);
+    return res.status(500).json({ error: err.message });
+  }
 }

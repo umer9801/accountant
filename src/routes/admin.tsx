@@ -180,8 +180,8 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
     try {
       await apiFetch(`/admin/reviews/${id}`, { method: "PATCH" });
       setReviews(prev => prev.map(r => r._id === id ? { ...r, status: "approved" } : r));
-    } catch (e) {
-      alert("Failed to approve: " + e);
+    } catch (e: any) {
+      console.error("Approve failed:", e.message);
     }
   };
 
@@ -189,8 +189,8 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
     try {
       await apiFetch(`/admin/reviews/${id}`, { method: "DELETE" });
       setReviews(prev => prev.filter(r => r._id !== id));
-    } catch (e) {
-      alert("Failed to delete: " + e);
+    } catch (e: any) {
+      console.error("Delete failed:", e.message);
     }
   };
 
