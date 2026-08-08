@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet, createRootRouteWithContext, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { reportError } from "../lib/lovable-error-reporting";
 import { Preloader } from "@/components/site/Preloader";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
@@ -26,7 +26,7 @@ function NotFoundComponent() {
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   useEffect(() => {
-    reportLovableError(error, { boundary: "root" });
+    reportError(error, { boundary: "root" });
   }, [error]);
   return (
     <div className="flex min-h-screen items-center justify-center px-4">
