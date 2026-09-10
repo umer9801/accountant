@@ -1,0 +1,130 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 12px);
+  --radius-3xl: calc(var(--radius) + 20px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-navy: var(--navy);
+  --color-royal: var(--royal);
+  --color-emerald: var(--emerald);
+  --color-ink: var(--ink);
+  --color-mist: var(--mist);
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-sans: "Manrope", "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1.25rem;
+  --navy: #0C2340;
+  --royal: #1A4A6E;
+  --emerald: #2D8A9E;
+  --teal-glow: #5CBDB9;
+  --ink: #0C2340;
+  --mist: #64748B;
+
+  --background: #F4F8FA;
+  --foreground: #0C2340;
+  --card: #FFFFFF;
+  --card-foreground: #0C2340;
+  --popover: #FFFFFF;
+  --popover-foreground: #0C2340;
+  --primary: #0C2340;
+  --primary-foreground: #F4F8FA;
+  --secondary: #1A4A6E;
+  --secondary-foreground: #FFFFFF;
+  --muted: #E6EEF3;
+  --muted-foreground: #52708A;
+  --accent: #2D8A9E;
+  --accent-foreground: #FFFFFF;
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(12, 35, 64, 0.08);
+  --input: rgba(12, 35, 64, 0.12);
+  --ring: #2D8A9E;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(1200px 600px at 10% -10%, rgba(45,138,158,0.14), transparent 60%),
+      radial-gradient(900px 500px at 110% 10%, rgba(92,189,185,0.14), transparent 60%);
+  }
+  h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@utility glass {
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 10px 40px -18px rgba(12,35,64,0.28);
+}
+@utility glass-dark {
+  background: rgba(12,35,64,0.55);
+  backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+@utility gradient-brand {
+  background-image: linear-gradient(135deg, #1A4A6E 0%, #2D8A9E 55%, #5CBDB9 100%);
+}
+@utility text-gradient {
+  background-image: linear-gradient(135deg, #1A4A6E 0%, #2D8A9E 55%, #5CBDB9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility ring-glow {
+  box-shadow: 0 0 0 1px rgba(45,138,158,0.28), 0 20px 60px -20px rgba(26,74,110,0.4);
+}
+@utility grid-bg {
+  background-image:
+    linear-gradient(rgba(12,35,64,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12,35,64,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes float-slow {
+  0%,100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-14px) rotate(3deg); }
+}
+@keyframes shine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@utility animate-float { animation: float-slow 6s ease-in-out infinite; }
+@utility shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shine 2.5s linear infinite;
+}

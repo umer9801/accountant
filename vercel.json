@@ -1,0 +1,12 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/api/admin/reviews/:id/approve", "destination": "/api/admin/reviews/[id]/approve" },
+    { "source": "/api/admin/reviews/:id", "destination": "/api/admin/reviews/[id]" },
+    { "source": "/api/admin/contacts/:id", "destination": "/api/admin/contacts/[id]" },
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
