@@ -2,8 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, ArrowRight } from "lucide-react";
 
-const PHONE = "+447774999123";
-const WHATSAPP = "447774999123";
+const PHONE = "+441617063550";
+const WHATSAPP = ""; // WhatsApp removed
 const ADDRESS = "Bartle House, 9 Oxford Court, Manchester, England, M2 3WQ";
 const MAP_URL = "https://maps.google.com/?q=Bartle+House+9+Oxford+Court+Manchester+M2+3WQ";
 
@@ -71,10 +71,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="h-4 w-4 mt-0.5 shrink-0 text-[color:var(--emerald)]" />
-                <div className="flex flex-col gap-1">
-                  <a href={`tel:${PHONE}`} className="hover:text-white transition">{PHONE}</a>
-                  <a href="tel:+441617063550" className="hover:text-white transition">+441617063550</a>
-                </div>
+                <a href={`tel:${PHONE}`} className="hover:text-white transition">{PHONE}</a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="h-4 w-4 mt-0.5 shrink-0 text-[color:var(--emerald)]" />
