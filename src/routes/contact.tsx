@@ -143,7 +143,7 @@ function Field({ label, ...props }: { label: string } & React.InputHTMLAttribute
 
 function ContactSidebar() {
   const items = [
-    { icon: Phone, label: "Call us", value: "01617063550", href: "tel:+441617063550" },
+    { icon: Phone, label: "Call us", value: "0161 706 3550", href: "tel:+441617063550" },
     { icon: Mail, label: "Email us", value: "info@properaccounting.co.uk", href: "mailto:info@properaccounting.co.uk" },
     { icon: MapPin, label: "Office", value: "Bartle House, 9 Oxford Court, Manchester, M2 3WQ", href: "https://maps.google.com/?q=Bartle+House+9+Oxford+Court+Manchester+M2+3WQ" },
   ];
