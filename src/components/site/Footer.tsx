@@ -78,7 +78,7 @@ export function Footer() {
                 <Mail className="h-4 w-4 mt-0.5 shrink-0 text-[color:var(--emerald)]" />
                 <a href="mailto:info@properaccounting.co.uk" className="hover:text-white transition">info@properaccounting.co.uk</a>
               </li>
-              <li className="text-xs mt-4 text-white/50">Mon–Fri · 9:00 – 18:00 GMT</li>
+              <li className="text-xs mt-4 text-white/50">Mon–Fri · 9:30 am – 5:30 pm</li>
             </ul>
           </div>
         </div>

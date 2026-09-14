@@ -161,8 +161,12 @@ function ContactSidebar() {
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-3xl bg-[color:var(--navy)] text-white p-6">
         <div className="flex items-center gap-2 font-semibold"><Clock className="h-4 w-4 text-[color:var(--emerald)]" /> Office hours</div>
         <ul className="mt-4 text-sm space-y-2 text-white/80">
-          <li className="flex justify-between"><span>Monday – Friday</span><span>9:00 – 18:00</span></li>
-          <li className="flex justify-between"><span>Saturday</span><span>10:00 – 14:00</span></li>
+          <li className="flex justify-between"><span>Monday</span><span>9:30 am – 5:30 pm</span></li>
+          <li className="flex justify-between"><span>Tuesday</span><span>9:30 am – 5:30 pm</span></li>
+          <li className="flex justify-between"><span>Wednesday</span><span>9:30 am – 5:30 pm</span></li>
+          <li className="flex justify-between"><span>Thursday</span><span>9:30 am – 5:30 pm</span></li>
+          <li className="flex justify-between"><span>Friday</span><span>9:30 am – 5:30 pm</span></li>
+          <li className="flex justify-between"><span>Saturday</span><span>Closed</span></li>
           <li className="flex justify-between"><span>Sunday</span><span>Closed</span></li>
         </ul>
       </motion.div>
